@@ -1,6 +1,5 @@
-Experten-Aufgabe SD
-beinhaltet:
---------------------------------------------------------------------------------------
+Experten-Aufgaben SD
+---------------------------
 - Passwortprüfer
 - Passwortgenerator
 - Schiffe versenken
