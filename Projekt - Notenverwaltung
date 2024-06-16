@@ -6,7 +6,6 @@ data = {"klassen": {}}
 bool_question = False
 bool_show = False
 
-
 def load_data(filename="noten.json"):
     global data
     try:
@@ -15,11 +14,9 @@ def load_data(filename="noten.json"):
     except FileNotFoundError:
         print("Keine vorhandene Daten gefunden. Eine neue Datei wird erstellt.")
 
-
 def save_data(filename="noten.json"):
     with open(filename, "w") as file:
         json.dump(data, file, indent=4)
-
 
 def questions():
     global klasse, fach, schueler, note, bool_question
@@ -63,7 +60,6 @@ def questions():
     bool_question = True
     note = int(input("Note: "))
 
-
 def show_grades():
     global bool_show
     print("\nVerfügbare Klassen:")
@@ -86,7 +82,6 @@ def show_grades():
 
         bool_show = False
 
-
 def add_grade(klasse, fach, schueler, note):
     if klasse not in data["klassen"]:
         data["klassen"][klasse] = {}
@@ -97,7 +92,6 @@ def add_grade(klasse, fach, schueler, note):
 
     data["klassen"][klasse][fach][schueler].append(note)
     save_data()
-
 
 def calculate_average():
     global bool_question
@@ -127,7 +121,6 @@ def calculate_average():
             else:
                 average = 0
             print(f"    {name}: Durchschnitt {average:.2f}")
-
 
 def change_grade():
     global klasse, fach, schueler, note, bool_question
@@ -185,7 +178,6 @@ def change_grade():
     except ValueError:
         print("Ungültige Eingabe. Bitte geben Sie eine gültige Zahl ein.")
 
-
 def delete_grade():
     global klasse, fach, schueler, note, bool_question
 
@@ -240,7 +232,6 @@ def delete_grade():
     except ValueError:
         print("Ungültige Eingabe. Bitte geben Sie eine gültige Zahl ein.")
 
-
 def del_student():
     global klasse, fach, schueler, note
 
@@ -278,7 +269,6 @@ def del_student():
     else:
         print("Löschvorgang abgebrochen.")
 
-
 def plt_data():
     classes_subjects = []
     grades_distribution = {i: [] for i in range(1, 7)}  # Grades 1 to 6
@@ -308,7 +298,6 @@ def plt_data():
     plt.legend()
     plt.tight_layout()
     plt.show()
-
 
 def main_menu():
     global bool_show
@@ -355,7 +344,6 @@ def main_menu():
             break
         else:
             print("Ungültige Auswahl, bitte erneut versuchen.")
-
 
 if __name__ == "__main__":
     load_data()
